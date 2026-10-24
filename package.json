@@ -1,0 +1,22 @@
+{
+  "name": "iobroker.canup",
+  "version": "1.0.0",
+  "description": "Bringt einen slcand-USB-CAN-Adapter beim ioBroker-Start hoch",
+  "author": "Lars",
+  "license": "MIT",
+  "main": "main.js",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "dependencies": {
+    "@iobroker/adapter-core": "^3.2.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lars752/ioBroker.canup.git"
+  }
+}
