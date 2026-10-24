@@ -77,12 +77,16 @@ class Canup extends utils.Adapter {
         }
     }
 
-    /** Admin-Nachrichten: USB-Geräteliste abrufen */
+    /** Admin-Nachrichten: USB-Geräteliste abrufen.
+     *  selectSendTo erwartet ein Array [{ label, value }, …] direkt als Antwort. */
     async onMessage(obj) {
         if (!obj || !obj.callback) return;
         if (obj.command === 'listUsbDevices') {
-            const devices = listUsbDevices();
-            this.sendTo(obj.from, obj.command, { devices }, obj.callback);
+            const names = listUsbDevices();
+            const options = names.length
+                ? names.map(n => ({ label: n, value: n }))
+                : [{ label: '(keine Geräte gefunden)', value: '' }];
+            this.sendTo(obj.from, obj.command, options, obj.callback);
         }
     }
 

@@ -15,43 +15,24 @@
           "newLine": true,
           "sm": 12
         },
-        "_usbLabel": {
-          "type": "staticText",
-          "text": { "de": "USB-Gerät", "en": "USB device" },
-          "newLine": true,
-          "sm": 12
-        },
-        "_listBtn": {
-          "type": "sendTo",
+
+        "usbDeviceId": {
+          "type": "selectSendTo",
           "command": "listUsbDevices",
           "jsonData": "{}",
-          "useNative": true,
-          "variant": "outlined",
           "label": {
-            "de": "Verfügbare USB-Geräte einlesen",
-            "en": "Read available USB devices"
-          },
-          "tooltip": {
-            "de": "Liest /dev/serial/by-id/ aus. Die Instanz muss laufen.",
-            "en": "Reads /dev/serial/by-id/. The instance must be running."
-          },
-          "newLine": true,
-          "sm": 12,
-          "md": 6
-        },
-        "usbDeviceId": {
-          "type": "text",
-          "label": {
-            "de": "Gerätename (Eintrag unter /dev/serial/by-id/)",
-            "en": "Device name (entry in /dev/serial/by-id/)"
+            "de": "USB-Gerät (/dev/serial/by-id/…)",
+            "en": "USB device (/dev/serial/by-id/…)"
           },
           "help": {
-            "de": "z. B. usb-Openlight_Labs_CANable2_…-if00  – nach dem Einlesen aus dem Log kopieren oder direkt eintragen",
-            "en": "e.g. usb-Openlight_Labs_CANable2_…-if00  – copy from log after reading or enter directly"
+            "de": "Klick auf ↻ lädt die aktuell verfügbaren Geräte (Instanz muss laufen). Alternativ den Namen direkt eintippen.",
+            "en": "Click ↻ to reload available devices (instance must be running). Or type the name directly."
           },
+          "manual": true,
           "newLine": true,
           "sm": 12
         },
+
         "canInterface": {
           "type": "text",
           "label": { "de": "CAN-Schnittstellenname", "en": "CAN interface name" },
@@ -96,6 +77,7 @@
           "sm": 12,
           "md": 3
         },
+
         "_pwLabel": {
           "type": "staticText",
           "text": { "de": "sudo-Berechtigung", "en": "sudo permission" },
@@ -116,6 +98,7 @@
           "sm": 12,
           "md": 6
         },
+
         "_pathLabel": {
           "type": "staticText",
           "text": { "de": "Programmpfade", "en": "Program paths" },
