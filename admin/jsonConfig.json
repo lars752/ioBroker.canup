@@ -1,0 +1,141 @@
+{
+  "type": "tabs",
+  "i18n": false,
+  "items": {
+    "main": {
+      "type": "panel",
+      "label": { "de": "Schnittstelle", "en": "Interface" },
+      "items": {
+        "_hint": {
+          "type": "staticText",
+          "text": {
+            "de": "Richtet beim Start einen slcand-USB-CAN-Adapter ein. Das sudo-Passwort wird verschlüsselt gespeichert.",
+            "en": "Sets up a slcand USB-CAN adapter on start. The sudo password is stored encrypted."
+          },
+          "newLine": true,
+          "sm": 12
+        },
+        "_usbLabel": {
+          "type": "staticText",
+          "text": { "de": "USB-Gerät", "en": "USB device" },
+          "newLine": true,
+          "sm": 12
+        },
+        "_listBtn": {
+          "type": "sendTo",
+          "command": "listUsbDevices",
+          "jsonData": "{}",
+          "useNative": true,
+          "variant": "outlined",
+          "label": {
+            "de": "Verfügbare USB-Geräte einlesen",
+            "en": "Read available USB devices"
+          },
+          "tooltip": {
+            "de": "Liest /dev/serial/by-id/ aus. Die Instanz muss laufen.",
+            "en": "Reads /dev/serial/by-id/. The instance must be running."
+          },
+          "newLine": true,
+          "sm": 12,
+          "md": 6
+        },
+        "usbDeviceId": {
+          "type": "text",
+          "label": {
+            "de": "Gerätename (Eintrag unter /dev/serial/by-id/)",
+            "en": "Device name (entry in /dev/serial/by-id/)"
+          },
+          "help": {
+            "de": "z. B. usb-Openlight_Labs_CANable2_…-if00  – nach dem Einlesen aus dem Log kopieren oder direkt eintragen",
+            "en": "e.g. usb-Openlight_Labs_CANable2_…-if00  – copy from log after reading or enter directly"
+          },
+          "newLine": true,
+          "sm": 12
+        },
+        "canInterface": {
+          "type": "text",
+          "label": { "de": "CAN-Schnittstellenname", "en": "CAN interface name" },
+          "help": { "de": "z. B. can0", "en": "e.g. can0" },
+          "newLine": true,
+          "sm": 12,
+          "md": 3
+        },
+        "bitrate": {
+          "type": "select",
+          "label": { "de": "Bitrate", "en": "Bitrate" },
+          "options": [
+            { "label": "10 kbit/s",  "value": "10000"   },
+            { "label": "20 kbit/s",  "value": "20000"   },
+            { "label": "50 kbit/s",  "value": "50000"   },
+            { "label": "100 kbit/s", "value": "100000"  },
+            { "label": "125 kbit/s", "value": "125000"  },
+            { "label": "250 kbit/s", "value": "250000"  },
+            { "label": "500 kbit/s (Standard)", "value": "500000" },
+            { "label": "800 kbit/s", "value": "800000"  },
+            { "label": "1 Mbit/s",   "value": "1000000" }
+          ],
+          "sm": 12,
+          "md": 3
+        },
+        "txqueuelen": {
+          "type": "number",
+          "label": { "de": "TX-Warteschlange (txqueuelen)", "en": "TX queue length (txqueuelen)" },
+          "min": 10,
+          "max": 10000,
+          "sm": 12,
+          "md": 3
+        },
+        "retryOnFailSec": {
+          "type": "number",
+          "label": {
+            "de": "Erneuter Versuch nach Fehler (Sekunden, 0 = nie)",
+            "en": "Retry after error (seconds, 0 = never)"
+          },
+          "min": 0,
+          "max": 3600,
+          "sm": 12,
+          "md": 3
+        },
+        "_pwLabel": {
+          "type": "staticText",
+          "text": { "de": "sudo-Berechtigung", "en": "sudo permission" },
+          "newLine": true,
+          "sm": 12
+        },
+        "sudoPassword": {
+          "type": "password",
+          "label": {
+            "de": "sudo-Passwort (wird verschlüsselt gespeichert)",
+            "en": "sudo password (stored encrypted)"
+          },
+          "help": {
+            "de": "Wird per Pipe an sudo -S übergeben und erscheint nicht in der Prozessliste.",
+            "en": "Passed via pipe to sudo -S and never appears in the process list."
+          },
+          "newLine": true,
+          "sm": 12,
+          "md": 6
+        },
+        "_pathLabel": {
+          "type": "staticText",
+          "text": { "de": "Programmpfade", "en": "Program paths" },
+          "newLine": true,
+          "sm": 12
+        },
+        "slcandPath": {
+          "type": "text",
+          "label": { "de": "Pfad zu slcand", "en": "Path to slcand" },
+          "sm": 12,
+          "md": 4,
+          "newLine": true
+        },
+        "ipPath": {
+          "type": "text",
+          "label": { "de": "Pfad zu ip", "en": "Path to ip" },
+          "sm": 12,
+          "md": 4
+        }
+      }
+    }
+  }
+}

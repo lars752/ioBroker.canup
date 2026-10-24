@@ -1,0 +1,136 @@
+{
+  "common": {
+    "name": "canup",
+    "version": "1.0.0",
+    "news": {
+      "1.0.0": {
+        "en": "Initial release",
+        "de": "Erstveröffentlichung"
+      }
+    },
+    "titleLang": {
+      "en": "CAN interface setup",
+      "de": "CAN-Schnittstelle einrichten"
+    },
+    "desc": {
+      "en": "Brings up a slcand USB-CAN adapter on ioBroker start and reports the interface status",
+      "de": "Bringt beim ioBroker-Start einen slcand-USB-CAN-Adapter hoch und meldet den Schnittstellenstatus"
+    },
+    "authors": [
+      "Lars"
+    ],
+    "keywords": [
+      "can",
+      "slcand",
+      "socketcan",
+      "canable"
+    ],
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "main": "main.js",
+    "icon": "canup.png",
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/lars752/ioBroker.canup/main/admin/canup.png",
+    "readme": "https://github.com/lars752/ioBroker.canup/blob/main/README.md",
+    "loglevel": "info",
+    "mode": "daemon",
+    "type": "hardware",
+    "compact": false,
+    "connectionType": "local",
+    "dataSource": "push",
+    "adminUI": {
+      "config": "json"
+    },
+    "dependencies": [
+      {
+        "js-controller": ">=5.0.19"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=6.0.0"
+      }
+    ],
+    "messagebox": true,
+    "supportedMessages": {
+      "custom": true
+    },
+    "encryptedNative": [
+      "sudoPassword"
+    ]
+  },
+  "native": {
+    "usbDeviceId": "",
+    "canInterface": "can0",
+    "bitrate": "500000",
+    "txqueuelen": 1000,
+    "slcandPath": "/usr/bin/slcand",
+    "ipPath": "/usr/bin/ip",
+    "scriptPath": "/home/iobroker/canup.sh",
+    "sudoPassword": "",
+    "retryOnFailSec": 30
+  },
+  "objects": [],
+  "instanceObjects": [
+    {
+      "_id": "info",
+      "type": "channel",
+      "common": {
+        "name": "Information"
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "role": "indicator.connected",
+        "name": "CAN-Schnittstelle aktiv",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "Status",
+      "type": "state",
+      "common": {
+        "role": "text",
+        "name": "Letzter Status",
+        "type": "string",
+        "read": true,
+        "write": false,
+        "def": ""
+      },
+      "native": {}
+    },
+    {
+      "_id": "InterfaceUp",
+      "type": "state",
+      "common": {
+        "role": "indicator",
+        "name": "Schnittstelle ist UP",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "LastSetup",
+      "type": "state",
+      "common": {
+        "role": "value.time",
+        "name": "Letzter Einrichtungszeitpunkt",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": 0
+      },
+      "native": {}
+    }
+  ]
+}
