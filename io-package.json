@@ -17,7 +17,7 @@
       "de": "Bringt beim ioBroker-Start einen slcand-USB-CAN-Adapter hoch und meldet den Schnittstellenstatus"
     },
     "authors": [
-      "Lars"
+      "lars752"
     ],
     "keywords": [
       "can",
